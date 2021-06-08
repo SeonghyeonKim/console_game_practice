@@ -1,4 +1,4 @@
-// https://geundung.dev/14
+// https://geundung.dev/17?category=699626
 
 #include <iostream>
 #include <cstdio>
@@ -27,7 +27,7 @@ int main() {
 
         }
         else if(menuCode == 1) {
-
+            infoDraw();
         }
         else if(menuCode == 2) {
             return 0;
@@ -39,7 +39,13 @@ int main() {
 }
 
 void infoDraw() {
-    
+    system("cls");
+    printf("\n\n");
+    printf("            정보 만들기 귀찮음\n");
+
+    while(1) {
+        if(keyControl() == SUBMIT) break;
+    }
 }
 
 int keyControl() {
@@ -54,6 +60,12 @@ int keyControl() {
 
 void init() {
     system("mode con cols=56 lines=20 | title 게 임 제 목 ");
+    
+    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO ConsoleCursor;
+    ConsoleCursor.bVisible = 0;
+    ConsoleCursor.dwSize = 1;
+    SetConsoleCursorInfo(consoleHandle, &ConsoleCursor);
 }
 
 void titleDraw() {
